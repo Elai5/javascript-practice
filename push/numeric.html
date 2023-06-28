@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeric&Slice</title>
+</head>
+<body>
+    <p>sort array in ascending order</p>
+    <button onclick="myFunction()">Try it</button>
+    <ul>
+        <li><p id="num"></p><i>sorts number</i></li>
+        <li><p id="concat"></p><i>creates new array by concatenating two/more arrays</i></li>
+    </ul>
+    <script>
+        var points = [40, 100, 1, 5, 25, 10];
+        var myCar = ["volvo", "sedan", "benz"];
+        var myEstate = ["lainlry", "brune", "sue"];
+        var myCash = ["dollar", "euro"];
+        var myAssets = myCar.concat(myEstate, myCash);
+
+        document.getElementById("num").innerHTML = points;
+        document.getElementById("concat").innerHTML = myAssets;
+
+        function myFunction() {
+            // points.sort(function(a, b){return a-b});
+            document.getElementById("num").innerHTML = points;
+            document.getElementById("concat").innerHTML = myAssets;
+        }
+    </script>
+</body>
+</html>

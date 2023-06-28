@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operator</title>
+</head>
+<body>
+    <h2>Wild birthday game</h2>
+    <p>
+        <ul>
+            <li>Enter the number 7</li>
+            <li>Multiply by the month of your birth</li>
+            <li>substract 1</li>
+            <li>Multiply by 13</li>
+            <li>add the day of your birth</li>
+            <li>add 3</li>
+            <li>Multiply by 11</li>
+            <li>substract the month of your birth</li>
+            <li>substract the day of your birth</li>
+            <li>divide 10</li>
+            <li>add 11</li>
+            <li>divide 100</li>
+        </ul>
+    </p>
+    <script>
+        var numberSeven = Number(prompt('Enter the number 7'));
+        var birthMonth = Number(prompt('Enter your birthMonth'));
+        var calculation = numberSeven * birthMonth;
+        calculation = calculation - 1;
+        calculation = calculation * 13;
+        var birthDay = Number(prompt('Enter the day of your birth'));
+        calculation = calculation + birthDay;
+        calculation = calculation + 3;
+        calculation = calculation * 11;
+        calculation = calculation - birthMonth;
+        calculation = calculation - birthDay;
+        calculation = calculation / 10;
+        calculation = calculation + 11;
+        calculation = calculation / 100
+
+        document.write("Your birthday is " + calculation);
+    </script>
+</body>
+</html>

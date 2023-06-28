@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesing methods\objects</title>
+</head>
+<body>
+    <u><h3>Accessing method</h3></u>
+    <p id="memo"></p>
+    <script>
+        var person = {
+            firstName: "Elai",
+            lastName: "Vitz",
+            id: 6756,
+            fullName: function( ) {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+        document.getElementById("memo").innerHTML = person.fullName();
+    </script>
+    <div>
+       <u> <h3>This section shows code for displaying current time</h3></u>
+        <p>click the button</p>
+        <button onclick="displayDate()">The time is</button>
+        <script>
+            function displayDate() {
+                document.getElementById("time").innerHTML = Date();
+            }
+        </script>
+        <p id="time"></p>
+    </div>
+    <div>
+        <u><h3>Temperature change</h3></u>
+
+    </div>
+    <div>
+        <u><h3>String method(indexOf, lastIndexOf,Search</h3></u>
+        <p id="p1">Operation locate away'Hellen'</p>
+        <button onclick="myFunction()">Find her</button>
+        <p id="find"></p>
+        <script>
+            function myFunction(){
+                var str = document.getElementById("p1").innerHTML;
+                var pos = str.indexOf("Hellen");
+                document.getElementById("find").innerHTML=pos;
+                var pos = str.lastIndexOf("locate");
+                document.getElementById("find").innerHTML=pos;
+                var str = document.getElementById("p1").innerHTML;
+                var pos = str.search("away");
+                document.getElementById("find").innerHTML=pos;
+                var str = "apple, banana, kiwi";
+                var res = str.substr(7,6);
+                document.getElementById("find").innerHTML=pos;
+            }
+        </script>
+    </div>
+</body>
+</html> 

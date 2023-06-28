@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript  atempt</title>
+</head>
+<body>
+    <!-- <p id="demo"> we are here to learn!</p> -->
+    <!-- <button type="button" onclick="document.getElementById('demo').innerHTML ='Hello Abayo'"click here></button> -->
+    <p>please input a number between 11 and 30:</p>
+    <input id="numb">
+    <button type="button" onclick="myFunction()">submit</button>
+    <p id="demo"></p>
+    <script>
+        function myFunction( ) {
+            var x, text;
+            //get value of input field with id="numb"
+            x = document .getElementById("numb") .value;
+            //if x in less that 11 and more than 30
+            if (isNaN(X) || X < 11 || X > 30) {
+                text= "invalid input";
+            }else{
+                text="valid input";
+            }
+            document.getElementById("demo") .innerHTML = text;
+        }
+    </script>
+<h1>my first rodeo</h1>
+<p>we begin at first light.</p>
+<p id="hero"></p>
+<script>
+    window.alert(6+7);
+    document.write(8+1);
+    document.getElementById("hero").innerHTML =12+12;
+</script>
+</body>
+</html> 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statement</title>
+</head>
+<body>
+    <p>this condition test for random numbers</p>
+    <!-- <button onclick="myFunction">Random</button> -->
+    <p id="rand"></p>
+    <script>
+        // function myFunction() {
+            var num;
+            num = Math.ceil(Math.random()*4)
+            if (num == 1) {
+                document.write("you have tried");
+            } else if (num > 10) {
+                document.write("you did great!");
+            } else {
+                document.write("you shall learn");
+            }
+            document.getElementById("rand").innerHTML = num;
+            // }
+    </script>
+</body>
+</html>

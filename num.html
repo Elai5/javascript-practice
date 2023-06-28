@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers</title>
+</head>
+<body>
+    <p>Floating poitn arithmetic is not always accurate</p>
+    <button onclick="myFunction()">num</button>
+    <p id= "num"></p>
+    <script>
+        function myFunction() {
+            var x = 0.5 + 0.3;
+            document.getElementById("num").innerHTML = "0.5 +0.3  = " + x;
+        }
+    </script>
+    <br>
+
+<p>Floating poitn arithmetic is not always accurate</p>
+<p>when you multiply and divide is better</p>
+<button onclick="myFunction()">mut</button>
+<p id= "mut"></p>
+<script>
+    function myFunction() {
+        var x = (0.5*10) + (0.3+10) /10;
+        document.getElementById("mut").innerHTML = "0.5 +0.3  = " + x;
+    }
+</script><br>
+
+<p>Math.round() rounds a number to its nearest integer.</p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = Math.round(4.4);
+}
+</script>
+
+</body>
+</html>

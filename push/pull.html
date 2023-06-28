@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>push|pull</title>
+</head>
+<body>
+    <p>pop method removes element from an array</p>
+    <button onclick="myFunction()">Click Me</button>
+
+    <ol>
+        <li><p id="demo"></p><i>join methods addd many string in array to one</i></li>
+        <li><p id="pop"></p><i>pop returns value that was popped out</i></li>
+        <li><p id="push"></p><i>adds new element at array end</i></li>
+        <li><p id="shift"></p><i>shift removes first element in an array</i></li>
+        <li><p id="unshift"></p><i>unshift ads new element at begining of array</i></li>
+        <li><p id="splice"></p><i>add new item to array </i></li>
+        <li><p id="sort"></p><i>sorts array alphabetically</i></li>
+        <li><p id="reverse"></p><i>sorts array reverse order</i></li>
+    </ol>
+    <script>
+        var names = ["Ela", "Adrenaline", "WeFalling", "You"];
+        var x = names.pop();
+        document.getElementById("demo").innerHTML = names;
+        document.getElementById("push").innerHTML = names;
+        document.getElementById("shift").innerHTML = names;
+        document.getElementById("unshift").innerHTML = names;
+        document.getElementById("splice").innerHTML = names;
+        document.getElementById("sort").innerHTML = names;
+        document.getElementById("reverse").innerHTML = names;
+
+
+
+        function myFunction() {
+            names.pop();
+            names.push("racheal");
+            names.shift();
+            names.unshift("Bazzi");
+            names.splice(2, 0, "metro", "boomin");
+            names.sort();
+            names.reverse();
+            document.getElementById("demo").innerHTML = names;
+            document.getElementById("pop").innerHTML = names;
+            document.getElementById("push").innerHTML = names;
+            document.getElementById("shift").innerHTML = names;
+            document.getElementById("unshift").innerHTML = names;
+            document.getElementById("splice").innerHTML = names;
+            document.getElementById("sort").innerHTML = names;
+            document.getElementById("reverse").innerHTML = names;
+        }
+    </script>
+</body>
+</html>
