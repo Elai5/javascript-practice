@@ -25,3 +25,19 @@ const color = "blue";
 
 console.log(" I have a car called" + myCar, "i bought is at $" + itsPrice, "and its" + color)
 // ▪Log each variable to the console with a descriptive message.
+
+// Create a function that takes an input and logs the data type of the input using typeof
+let theInput = "hello me";
+console.log(theInput)
+console.log(typeof ("hello me"))
+
+// the correct one
+function logDataType(input) {
+    console.log(typeof input);
+
+}
+logDataType(123);
+//Write a function to check and log the data type of various variables.
+function checkDataType(input) {
+
+}
