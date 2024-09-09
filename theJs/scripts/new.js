@@ -39,5 +39,8 @@ function logDataType(input) {
 logDataType(123);
 //Write a function to check and log the data type of various variables.
 function checkDataType(input) {
-
+    console.log(typeof input);
 }
+checkDataType("456");
+checkDataType(12);
+checkDataType(["1", "bob", 23]);
