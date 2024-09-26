@@ -1,0 +1,4 @@
+function calcTip(billValue){
+    i
+
+}
