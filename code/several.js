@@ -32,3 +32,20 @@ if(runnersAge >= 18 && isRunnerRegisteredEarly == true){
 } else {
   console.log('visit the registration desk');
 }
+
+
+//chatgpt alternative
+// let raceNumbers = Math.floor(Math.random() * 1000);
+// let isRunnerRegisteredEarly = true;
+// let runnersAge = 18;
+
+if (runnersAge > 18 && isRunnerRegisteredEarly) {
+  raceNumber += 1000;
+  console.log(`${raceNumber} will start at 9:30 am`);
+} else if (runnersAge > 18 && !isRunnerRegisteredEarly) {
+  console.log(`${raceNumber} will start at 11:00 am`);
+} else if (runnersAge < 18) {
+  console.log(`${raceNumber} will start at 12:30 pm`);
+} else {
+  console.log('Visit the registration desk for further details.');
+}
