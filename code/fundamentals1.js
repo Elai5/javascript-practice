@@ -1,3 +1,7 @@
+// work on using template literals in your code and the note operator. makes your code clean
+
+
+
 // 1. values and variables
 let country = 'Kenya';
 const continent = 'Africa';
@@ -40,6 +44,16 @@ let description = 'Portugal is in Europe, and its 1 million people speak portugu
 description = `Portugal is in Europe
 and its 1 million people speakaing portugese`;
 
+const description1 = country +
+    'iko kwa ' +
+    continent +
+    ', na pia ' +
+    population +
+    'millionioni wanazungumza  ' +
+    language;
+console.log(description1)
+
+
 //lec6 taking decision if/else statements
 if (country > averagePopulatin) {
     console.log("portugal population is above average")
@@ -60,13 +74,13 @@ if (country > averagePopulatin) {
 // lec 9 logical operator
 let newCountry;
 language = "English";
-if (population < 50000000 && isIsland == false && language == "English"){
+if (population < 50000000 && isIsland == false && language == "English") {
     console.log('You should live in portugal');
-} else{
+} else {
     console.log('Portugal does not meet your criteria');
 }
 // lec 10 : switch statement
-switch(language){
+switch (language) {
     case 'chinese || mandarin':
         console.log('most numbers of native speakers');
         break;
@@ -86,3 +100,6 @@ switch(language){
         console.log('great language too: D');
         break;
 }
+
+//lect 10: ternary operator
+if (population > 33000000 ? console.log('Portugal population is above average') : console.log('portugal population is below average'));
