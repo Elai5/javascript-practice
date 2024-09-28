@@ -23,17 +23,26 @@ country = country + 1;
 console.log(country);
 
 let finland = 6000000;
-if(country > finland) {
+if (country > finland) {
     console.log('you are more than finland');
 } else {
     console.log('we are less')
 }
-let averagePopulatin = 33000000;
-if (country < averagePopulatin){
+let averagePopulatin = 130;
+if (country < averagePopulatin) {
     console.log('your coutry have less than average people');
 } else {
     console.log('you suprpassed average population');
 }
 let description = 'Portugal is in Europe, and its 1 million people speak portuguese';
 
-// lec 5. stings and template literals
+// lec 5. stings and template literals   
+description = `Portugal is in Europe
+and its 1 million people speakaing portugese`;
+
+//lec6 taking decision if/else statements
+if (country > averagePopulatin) {
+    console.log("portugal population is above average")
+} else {
+    console.log("portugal population is 22 million bellow average");
+}
