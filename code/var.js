@@ -1,7 +1,7 @@
 // 1. values and variables
 let country = 'Kenya';
 const continent = 'Africa';
-let population = 20000000;
+let population = 200000000;
 
 console.log('I am from ' + country + ' it is located in ' + continent + ' with a population of ' + population);
 
@@ -28,7 +28,7 @@ if (country > finland) {
 } else {
     console.log('we are less')
 }
-let averagePopulatin = 130;
+let averagePopulatin = 13;
 if (country < averagePopulatin) {
     console.log('your coutry have less than average people');
 } else {
@@ -46,3 +46,24 @@ if (country > averagePopulatin) {
 } else {
     console.log("portugal population is 22 million bellow average");
 }
+
+// lec 8: equality operators
+// let numNeigbours = prompt('How many neighbour countries does your country have?');
+// if (numNeigbours === 1) {
+//     document.write("ONly 1 border!");
+// } else if (numNeigbours > 1) {
+//     document.write("more than 1 border");
+// } else {
+//     document.write("No borders");
+// }
+
+// lec 9 logical operator
+let newCountry;
+language = "English";
+if (population < 50000000 && isIsland == false && language == "English"){
+    console.log('You should live in portugal');
+} else{
+    console.log('Portugal does not meet your criteria');
+}
+
+// lec 10 : switch statement
