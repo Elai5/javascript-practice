@@ -10,11 +10,11 @@ console.log(day);
 
 // const plantsNeedWater = day => day === 'wedesday' ? true : false;
 
-let age = 14;
-const isHoliday = false;
+let age = 90;
+const isHoliday = true;
 
-// if (isHoliday &&(age <= 6 || age >= 65)) {}
-if (age <= 6 || (age >= 65 && isHoliday)) {
+if (!isHoliday && (age <= 6 || age >= 65)) {
+   
     console.log('Discount');
 } else {
     console.log('No Discount');
