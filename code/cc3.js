@@ -28,3 +28,15 @@ else {
 
 // Dolphins = [97, 112, 101];
 // Koalas = [109, 95, 123];
+
+
+let calcAverage = (score1, score2, score3) => {
+    return (score1 + score2 + score3) / 3;
+}
+let avgDolphins = calcAverage(44, 23, 71);
+let avgKoalas = calcAverage(65, 54, 49);
+
+let checkWinner = avgDolphins >= avgKoalas * 2 ?
+    console.log(`the dolphin won ${avgDolphins} vs ${avgKoalas}`) :
+    console.log(`Koalas won with ${avgKoalas} vs ${avgDolphins}`);
+
