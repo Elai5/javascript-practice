@@ -36,6 +36,9 @@ let calcAverage = (score1, score2, score3) => {
 let avgDolphins = calcAverage(44, 23, 71);
 let avgKoalas = calcAverage(65, 54, 49);
 
+avgDolphins = calcAverage(85, 54, 41);
+avgKoalas = calcAverage(23, 34, 27)
+
 let checkWinner = avgDolphins >= avgKoalas * 2 ?
     console.log(`the dolphin won ${avgDolphins} vs ${avgKoalas}`) :
     console.log(`Koalas won with ${avgKoalas} vs ${avgDolphins}`);
