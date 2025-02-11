@@ -31,3 +31,10 @@ const onlyNUmbers = things.filter(thing => {
     return typeof thing === 'number';
 });
 console.log(onlyNUmbers);
+
+const newNumbers = [1, 3, 5, 7];
+const newSum = newNumbers.reduce((accumulator, currentValue) => {
+    console.log('The value of accumulator is: ', accumulator);
+    console.log('THe value of currentValue is: ', currentValue);
+    return accumulator + currentValue
+});
