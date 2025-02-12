@@ -24,3 +24,10 @@ let getFUnctionString = (func) => {
 
 let result = multiplyTwoValues(2, 2);
 square(result);
+
+const increment = (salary) => {
+    const revisedSalary = salary + 5;
+    console.log(revisedSalary);
+    return revisedSalary;
+}
+const incrementHolder = increment;
