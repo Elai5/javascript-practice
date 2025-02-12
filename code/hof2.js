@@ -36,3 +36,14 @@ const oddNumbers = [1, 3, 5, 7];
 const evenNumbers = oddNumbers.ma(number => {
     return number * 2
 });
+
+const randomNums = [1, 123, 25, 90, 3543, 42];
+const foundElement = randomNums.findIndex(num => num > 200);
+
+let cb = (n1, n2) => { return n1 + n2 };
+let hof = (func) => {
+    let value = func(3, 5);
+    return `this function returned ${value}`;
+}
+
+hof(cb)
