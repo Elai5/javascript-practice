@@ -81,3 +81,21 @@ const belowAverage = students
     );
 console.log(belowAverage);
 // console.log(students)
+
+// Given an array of employee objects, each with a name and salary, filter out employees with a salary less than $50,000, 
+// and then create a new array containing the names of the remaining employees in uppercase. Use method chaining to achieve this.
+
+const employee = [
+    { name: 'Cyrille', salary: 50000 },
+    { name: 'Shanize', salary: 49000 },
+    { name: 'Tom', salary: 5000 },
+    { name: 'mary', salary: 30000 },
+    { name: 'Banes', salary: 70000 }
+];
+const lessSalary = employee
+    .filter(employee =>
+        employee.salary < 50000
+    ).map(employee =>
+        employee.name.toUpperCase()
+    );
+console.log(lessSalary)
