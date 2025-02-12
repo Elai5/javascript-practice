@@ -98,4 +98,11 @@ const lessSalary = employee
     ).map(employee =>
         employee.name.toUpperCase()
     );
-console.log(lessSalary)
+console.log(lessSalary);
+
+// Given an array of words, use the forEach method to log each word along with its index and the entire array.
+// Use the optional arguments of the forEach method to achieve this. Format the output as: ‘Word: [word], Index: [index], Array: [array]’.”
+
+const words = ['passion', 'mango', 'Bubble', 'cookie'];
+words.forEach((element, index, array) =>
+    console.log(`Word: ${element}, Index ${index}, array:[${array.join(', ')}]`));
