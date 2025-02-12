@@ -6,3 +6,6 @@ const addItUp = nums.reduce((acumulator, currentValue
     return acumulator + currentValue;
 }, initializer);
 console.log(addItUp);
+
+const sum = (x, y) => x + y;
+sum.alias = 'summation';
