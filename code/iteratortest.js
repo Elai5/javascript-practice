@@ -60,4 +60,24 @@ const notElectronic = products
     .map(product =>
         product.price
     );
-console.log(notElectronic)
+console.log(notElectronic);
+
+// Given an array of student objects, each with a name and score, filter out the students who scored less than 70,
+// and then create a new array containing only the names of the students who passed.Use method chaining to achieve this.
+
+const students = [
+    { name: 'Elaine', score: 80 },
+    { name: 'YVette', score: 60 },
+    { name: 'Abayo', score: 30 },
+    { name: 'Mish', score: 70 },
+    { name: 'Mike', score: 88 }
+];
+
+const belowAverage = students
+    .filter(students =>
+        students.score >= 70)
+    .map(students =>
+        students.name
+    );
+console.log(belowAverage);
+// console.log(students)
