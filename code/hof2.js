@@ -31,3 +31,8 @@ const increment = (salary) => {
     return revisedSalary;
 }
 const incrementHolder = increment;
+
+const oddNumbers = [1, 3, 5, 7];
+const evenNumbers = oddNumbers.ma(number => {
+    return number * 2
+});
