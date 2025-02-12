@@ -54,6 +54,10 @@ const products = [
     { name: 'phone', price: 300, category: 'electronics' },
     { name: 'book', price: 20, category: 'stationery' }
 ];
-const notElectronic = products.filter(product => 
-    product.category !== 'electronics');
+const notElectronic = products
+    .filter(product =>
+        product.category !== 'electronics')
+    .map(product =>
+        product.price
+    );
 console.log(notElectronic)
