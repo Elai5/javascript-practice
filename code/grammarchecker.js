@@ -12,5 +12,10 @@ storyWords.forEach((word) => {
 
 storyWords = storyWords.filter((word) => word !== unnecessaryWord);
 
+let badWordIndex = storyWords.findIndex((word) =>
+  word === badWord ? true : false
+);
+
+console.log(badWordIndex);
 console.log(count);
 console.log(storyWords.join());
