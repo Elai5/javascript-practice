@@ -16,6 +16,7 @@ let badWordIndex = storyWords.findIndex((word) =>
   word === badWord ? true : false
 );
 
+storyWords[78] = "really";
 console.log(badWordIndex);
 console.log(count);
 console.log(storyWords.join());
