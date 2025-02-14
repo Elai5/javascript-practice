@@ -36,3 +36,23 @@ let lengthCheck = storyWords.every((word) =>
 console.log(lengthCheck);
 console.log(count);
 console.log(storyWords.join());
+
+if (badWordIndex !== -1) {
+  storyWords[badWordIndex] = "really";
+}
+
+
+// This code snippet is used to replace a specific word in the `storyWords` array with the word "really". Here's how it works:
+
+// 1. **Check the Index**: The condition `if (badWordIndex !== -1)` checks whether the `badWordIndex` variable holds a valid index. The `.findIndex()` method returns `-1` if the word is not found in the array. So, this condition ensures that the word was found.
+
+// 2. **Replace the Word**: If the condition is true (meaning the word was found), the code `storyWords[badWordIndex] = "really";` accesses the element at the `badWordIndex` position in the `storyWords` array and replaces it with the string "really".
+
+// This ensures that the "bad" word is replaced only if it exists in the array.
+
+// Task 11: Find and replace the long word.
+
+// let longWordIndex = storyWords.findIndex(word => word.length > 10);
+// if (longWordIndex !== -1) {
+//   storyWords[longWordIndex] = "glorious"; // or another shorter word
+// }
