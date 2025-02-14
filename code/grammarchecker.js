@@ -4,19 +4,35 @@ let storyWords = story.split(" ");
 let unnecessaryWord = "literally";
 let misspelledWord = "beautifull";
 let badWord = "freaking";
-
+let longWord = "breathtaking";
+// console.log(storyWords);
 let count = 0;
 storyWords.forEach((word) => {
   count++;
 });
 
 storyWords = storyWords.filter((word) => word !== unnecessaryWord);
+storyWords = storyWords.map((word) =>
+  word === misspelledWord ? "beautiful" : word
+);
 
 let badWordIndex = storyWords.findIndex((word) =>
   word === badWord ? true : false
 );
-
-storyWords[78] = "really";
+let longWordIndex = storyWords.findIndex((word) =>
+  word === longWord ? true : false
+);
 console.log(badWordIndex);
+console.log(longWordIndex);
+
+longWord = "glorious";
+storyWords[78] = "really";
+console.log(storyWords[78]);
+
+let lengthCheck = storyWords.every((word) =>
+  word.length <= 10 ? true : false
+);
+// storyWords = storyWords.find((word) => word.length > 10);
+console.log(lengthCheck);
 console.log(count);
 console.log(storyWords.join());
