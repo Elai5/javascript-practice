@@ -30,3 +30,10 @@ let spaceShip = {
   },
 };
 let capFave = spaceShip.crew.captain["favoriteFoods"][0];
+spaceShip.passenger = [
+  {
+    name: "Elaine",
+  },
+];
+let firstPassenger = spaceship.passengers[0];
+console.log(firstPassenger);
