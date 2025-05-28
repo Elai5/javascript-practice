@@ -1,44 +1,84 @@
 <!-- @format -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Country Dropdown Example</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
-      select {
-        width: 100%;
-        padding: 8px;
-        border-radius: 4px;
+      #country-list {
+        max-height: 200px;
+        overflow-y: auto;
         border: 1px solid #ccc;
+        margin-top: 5px;
+        display: none;
+      }
+      .country-item {
+        padding: 8px;
+        cursor: pointer;
+      }
+      .country-item:hover {
+        background: #f0f0f0;
       }
     </style>
   </head>
   <body>
-    <label for="country">Country</label>
-    <select id="country" name="country"></select>
+    <label for="country-input">Country of Origin</label>
+    <input
+      type="text"
+      id="country-input"
+      name="country"
+      placeholder="Type a country..."
+      required
+    />
+    <div id="country-list"></div>
+    <div id="selected-country"></div>
 
     <script>
-      const countries = [
-        { code: "US", name: "United States" },
-        { code: "CA", name: "Canada" },
-        { code: "GB", name: "United Kingdom" },
-        { code: "AU", name: "Australia" },
-      ];
-      const select = document.getElementById("country");
-      countries.forEach((country) => {
-        const option = document.createElement("option");
-        option.value = country.code;
-        option.textContent = country.name;
-        select.appendChild(option);
+      let countries = [];
+      const countryInput = document.getElementById("country-input");
+      const countryList = document.getElementById("country-list");
+      const selectedCountry = document.getElementById("selected-country");
+
+      fetch("https://restcountries.com/v3.1/all")
+        .then((res) => res.json())
+        .then((data) => {
+          countries = data.map((c) => c.name.common).sort();
+        })
+        .catch((error) => {
+          console.error("Error fetching country data:", error);
+        });
+
+      countryInput.addEventListener("input", function (e) {
+        const query = this.value.toLowerCase();
+        countryList.innerHTML = "";
+        if (query.length === 0) {
+          countryList.style.display = "none";
+          return;
+        }
+        const filtered = countries.filter((c) =>
+          c.toLowerCase().startsWith(query)
+        );
+        if (filtered.length === 0) {
+          countryList.style.display = "none";
+          return;
+        }
+        filtered.forEach((country) => {
+          const item = document.createElement("div");
+          item.className = "country-item";
+          item.textContent = country;
+          item.onclick = () => {
+            countryInput.value = country;
+            selectedCountry.textContent = `Selected: ${country}`;
+            countryList.style.display = "none";
+          };
+          countryList.appendChild(item);
+        });
+        countryList.style.display = "block";
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!countryList.contains(e.target) && e.target !== countryInput) {
+          countryList.style.display = "none";
+        }
       });
     </script>
   </body>

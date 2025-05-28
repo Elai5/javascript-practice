@@ -1,0 +1,114 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .country-dropdown {
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        margin-top: 5px;
+        display: none;
+      }
+      .country-item {
+        padding: 8px;
+        cursor: pointer;
+      }
+      .country-item:hover {
+        background: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Country of Origin -->
+    <div class="form-group">
+      <label for="country-input">Country of Origin</label>
+      <input
+        type="text"
+        id="country-input"
+        name="country"
+        placeholder="Type a country..."
+        required
+      />
+      <div id="country-list" class="country-dropdown"></div>
+      <div id="selected-country"></div>
+    </div>
+
+    <!-- Country of Study -->
+    <div class="form-group">
+      <label for="location-input">Country of Study</label>
+      <input
+        type="text"
+        id="location-input"
+        name="location"
+        placeholder="Type a country..."
+        required
+      />
+      <div id="location-list" class="country-dropdown"></div>
+      <div id="selected-location"></div>
+    </div>
+
+    <script>
+      let countries = [];
+      // Fetch countries once
+      fetch("https://restcountries.com/v3.1/all")
+        .then((res) => res.json())
+        .then((data) => {
+          countries = data.map((c) => c.name.common).sort();
+        })
+        .catch((error) => {
+          console.error("Error fetching country data:", error);
+        });
+
+      // Function to handle autocomplete for any input and dropdown
+      function setupAutocomplete(inputId, dropdownId, selectedId) {
+        const input = document.getElementById(inputId);
+        const dropdown = document.getElementById(dropdownId);
+        const selected = document.getElementById(selectedId);
+
+        input.addEventListener("input", function (e) {
+          const query = this.value.toLowerCase();
+          dropdown.innerHTML = "";
+          if (query.length === 0) {
+            dropdown.style.display = "none";
+            return;
+          }
+          const filtered = countries.filter((c) =>
+            c.toLowerCase().startsWith(query)
+          );
+          if (filtered.length === 0) {
+            dropdown.style.display = "none";
+            return;
+          }
+          filtered.forEach((country) => {
+            const item = document.createElement("div");
+            item.className = "country-item";
+            item.textContent = country;
+            item.onclick = () => {
+              input.value = country;
+              if (selected) selected.textContent = `Selected: ${country}`;
+              dropdown.style.display = "none";
+            };
+            dropdown.appendChild(item);
+          });
+          dropdown.style.display = "block";
+        });
+
+        document.addEventListener("click", function (e) {
+          if (
+            !dropdown.contains(e.target) &&
+            e.target !== input &&
+            !dropdown.contains(e.target)
+          ) {
+            dropdown.style.display = "none";
+          }
+        });
+      }
+
+      // Set up autocomplete for both fields
+      setupAutocomplete("country-input", "country-list", "selected-country");
+      setupAutocomplete("location-input", "location-list", "selected-location");
+    </script>
+  </body>
+</html>
