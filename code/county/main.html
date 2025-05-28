@@ -32,7 +32,6 @@
         required
       />
       <div id="country-list" class="country-dropdown"></div>
-      <div id="selected-country"></div>
     </div>
 
     <!-- Country of Study -->
@@ -46,12 +45,10 @@
         required
       />
       <div id="location-list" class="country-dropdown"></div>
-      <div id="selected-location"></div>
     </div>
 
     <script>
       let countries = [];
-      // Fetch countries once
       fetch("https://restcountries.com/v3.1/all")
         .then((res) => res.json())
         .then((data) => {
@@ -61,11 +58,9 @@
           console.error("Error fetching country data:", error);
         });
 
-      // Function to handle autocomplete for any input and dropdown
-      function setupAutocomplete(inputId, dropdownId, selectedId) {
+      function setupAutocomplete(inputId, dropdownId) {
         const input = document.getElementById(inputId);
         const dropdown = document.getElementById(dropdownId);
-        const selected = document.getElementById(selectedId);
 
         input.addEventListener("input", function (e) {
           const query = this.value.toLowerCase();
@@ -86,8 +81,7 @@
             item.className = "country-item";
             item.textContent = country;
             item.onclick = () => {
-              input.value = country;
-              if (selected) selected.textContent = `Selected: ${country}`;
+              input.value = country; // Only updates the input box
               dropdown.style.display = "none";
             };
             dropdown.appendChild(item);
@@ -96,19 +90,14 @@
         });
 
         document.addEventListener("click", function (e) {
-          if (
-            !dropdown.contains(e.target) &&
-            e.target !== input &&
-            !dropdown.contains(e.target)
-          ) {
+          if (!dropdown.contains(e.target) && e.target !== input) {
             dropdown.style.display = "none";
           }
         });
       }
 
-      // Set up autocomplete for both fields
-      setupAutocomplete("country-input", "country-list", "selected-country");
-      setupAutocomplete("location-input", "location-list", "selected-location");
+      setupAutocomplete("country-input", "country-list");
+      setupAutocomplete("location-input", "location-list");
     </script>
   </body>
 </html>
