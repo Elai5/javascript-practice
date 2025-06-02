@@ -1,0 +1,83 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bio Generator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="form-container">
+      <h1>Bio Generator</h1>
+      <form id="bioForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+
+        <div class="form-group">
+          <label>Interests (up to 10):</label>
+          <div id="interestsContainer">
+            <input
+              type="text"
+              class="interest"
+              name="interest1"
+              placeholder="Interest 1"
+              required
+            />
+          </div>
+          <button type="button" id="addInterest">Add Interest</button>
+        </div>
+
+        <fieldset class="form-group">
+          <legend>Personality:</legend>
+          <div class="personality-options">
+            <input
+              type="radio"
+              id="geeky"
+              name="personality"
+              value="geeky"
+              required
+            />
+            <label for="geeky">Geeky</label>
+
+            <input type="radio" id="casual" name="personality" value="casual" />
+            <label for="casual">Casual</label>
+
+            <input type="radio" id="funny" name="personality" value="funny" />
+            <label for="funny">Funny</label>
+
+            <input
+              type="radio"
+              id="business"
+              name="personality"
+              value="business"
+            />
+            <label for="business">Business</label>
+
+            <input
+              type="radio"
+              id="professional"
+              name="personality"
+              value="professional"
+            />
+            <label for="professional">Professional</label>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="generateBio">Generate Bio</button>
+
+        <div class="bio-result">
+          <h3>Your Bio:</h3>
+          <p id="bioOutput" aria-live="polite">Your bio will appear here!</p>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
+<script src="index.js"></script>

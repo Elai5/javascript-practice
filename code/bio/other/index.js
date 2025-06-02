@@ -1,41 +1,43 @@
 /** @format */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const interestsContainer = document.getElementById("interestsContainer");
   const addInterestBtn = document.getElementById("addInterest");
   const generateBioBtn = document.getElementById("generateBio");
   const bioOutput = document.getElementById("bioOutput");
   let interestCount = 1;
+  const MAX_INTERESTS = 10;
 
-  addInterestBtn.addEventListener("click", function () {
-    if (interestCount < 10) {
+  // Add interest input field
+  addInterestBtn.addEventListener("click", () => {
+    if (interestCount < MAX_INTERESTS) {
       interestCount++;
-      const newInput = document.createElement("input");
-      newInput.type = "text";
-      newInput.className = "interest";
-      newInput.placeholder = `Interest ${interestCount}`;
-      interestsContainer.appendChild(newInput);
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "interest";
+      input.placeholder = `Interest ${interestCount}`;
+      interestsContainer.appendChild(input);
     } else {
-      alert("Maximum 10 interests allowed!");
+      alert(`Maximum ${MAX_INTERESTS} interests allowed!`);
     }
   });
 
-  //Mention all interests in a natural way mvp(no ai yet)
-  function mentionAll(interests) {
+  // Helper to join interests naturally
+  const mentionAll = (interests) => {
     if (interests.length === 0) return "";
     if (interests.length === 1) return interests[0];
     if (interests.length === 2) return `${interests[0]} and ${interests[1]}`;
-    return `${interests
-      .slice(0, -1)
-      .join(", ")}, and ${interests[interests.length - 1]}`;
-  }
+    return `${interests.slice(0, -1).join(", ")}, and ${
+      interests[interests.length - 1]
+    }`;
+  };
 
-  function getBioTemplates() {
-    const username = document.getElementById("username").value;
+  // Bio templates (exact sentences you provided)
+  const getBioTemplates = () => {
+    const username = document.getElementById("username").value.trim();
     const interests = Array.from(document.querySelectorAll(".interest"))
       .map((input) => input.value.trim())
       .filter((value) => value !== "");
-
     const allInterests = mentionAll(interests);
 
     return {
@@ -60,6 +62,20 @@ document.addEventListener("DOMContentLoaded", function () {
           `Hello, I’m ${username}. ${allInterests} are my Turing test—pass or fail, I’m still learning.`,
           `I’m ${username}. I’m fascinated by ${allInterests} and how they shape our world.`,
           `${username} at your service. I’m dedicated to understanding ${allInterests} inside and out.`,
+        ],
+        ironman: [
+          `I’m ${username}. I like ${allInterests} so much, I built a suit for them. Okay, maybe not, but I’m working on it.`,
+          `${username} here. ${allInterests}? I’m a genius, billionaire, playboy, philanthropist—well, at least in my dreams.`,
+          `Call me ${username}. I love ${allInterests}, and I promise I’m not as arrogant as Tony Stark. Maybe.`,
+          `I’m ${username}. I’m passionate about ${allInterests}, and I’m ready to save the world.`,
+          `${username} at your service. I’m all about ${allInterests}, and I’m always up for an adventure.`,
+        ],
+        george: [
+          `I'm ${username}. I was going to be an expert in ${allInterests}, but then I got distracted. Story of my life.`,
+          `${username} here. I love ${allInterests}, but I'm not sure if they love me back.`,
+          `Hi, I’m ${username}. I like ${allInterests}, but I’m not sure what it says about me. Maybe I’m just cheap.`,
+          `I’m ${username}. My interests are ${allInterests}, and I’m not sure if that’s a good thing.`,
+          `${username} reporting. I’m into ${allInterests}, but I’m still figuring it out.`,
         ],
       },
       casual: {
@@ -99,20 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
           `You know what’s not funny? Not being into ${allInterests}. I’m ${username}, and I’m here to fix that.`,
           `I’m ${username}. I’m all about ${allInterests}, and I’m not afraid to make a joke about it.`,
           `${username} here. If you like ${allInterests}, we’re going to get along just fine.`,
-        ],
-        ironman: [
-          `I’m ${username}. I like ${allInterests} so much, I built a suit for them. Okay, maybe not, but I’m working on it.`,
-          `${username} here. ${allInterests}? I’m a genius, billionaire and a philanthropist—well, at least in my dreams.`,
-          `Call me ${username}. I love ${allInterests}, and I promise I’m not as arrogant as Tony Stark. Maybe.`,
-          `I’m ${username}. I’m passionate about ${allInterests}, and I’m ready to save the world.`,
-          `${username} at your service. I’m all about ${allInterests}, and I’m always up for an adventure.`,
-        ],
-        george: [
-          `I'm ${username}. I was going to be an expert in ${allInterests}, but then I got distracted. Story of my life.`,
-          `${username} here. I love ${allInterests}, but I'm not sure if they love me back.`,
-          `Hi, I’m ${username}. I like ${allInterests}, but I’m not sure what it says about me. Maybe I’m just cheap.`,
-          `I’m ${username}. My interests are ${allInterests}, and I’m not sure if that’s a good thing.`,
-          `${username} reporting. I’m into ${allInterests}, but I’m still figuring it out.`,
         ],
       },
       business: {
@@ -162,20 +164,26 @@ document.addEventListener("DOMContentLoaded", function () {
         ],
       },
     };
-  }
+  };
 
-  generateBioBtn.addEventListener("click", function () {
-    const username = document.getElementById("username").value;
+  // Generate bio on button click
+  generateBioBtn.addEventListener("click", () => {
+    const username = document.getElementById("username").value.trim();
     const interests = Array.from(document.querySelectorAll(".interest"))
       .map((input) => input.value.trim())
       .filter((value) => value !== "");
-    const personality = document.getElementById("personality").value;
+    const personalityInput = document.querySelector(
+      'input[name="personality"]:checked'
+    );
 
-    if (!username || interests.length === 0) {
-      alert("Please fill in your username and at least one interest!");
+    if (!username || interests.length === 0 || !personalityInput) {
+      alert(
+        "Please fill in your username, at least one interest, and select a personality!"
+      );
       return;
     }
 
+    const personality = personalityInput.value;
     const bioTemplates = getBioTemplates();
     const styles = Object.keys(bioTemplates[personality]);
     const randomStyle = styles[Math.floor(Math.random() * styles.length)];
